@@ -1,1 +1,0 @@
-# proyecto-7-GSO
