@@ -4,7 +4,7 @@ import streamlit as st
 
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
 car_data["manufacturer"] = car_data['model'].str.split(" ").str[0]
-type_brand_button = st.button("Construir comparativa de marca con tipo de vehiculo")
+type_brand_button = st.checkbox("Construir comparativa de marca con tipo de vehiculo")
 hist_button = st.checkbox('Construir histograma') # crear un botón
 scatt_button = st.checkbox("Construir grafico de dispersion")
       
@@ -17,8 +17,6 @@ if type_brand_button:
 
     st.plotly_chart(fig_manufacturer_type,use_container_width=True)
 
-
-
 if hist_button: # al hacer clic en el botón
     # escribir un mensaje
     st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
@@ -29,7 +27,7 @@ if hist_button: # al hacer clic en el botón
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig_model_condition, use_container_width=True)
 
-if scatt_button: # al hacer clic en el botón
+if scatt_checkbox: # al hacer clic en el botón
     # escribir un mensaje
     st.write('Creacion de un diagrama de dispersion del precio comparado con el millaje')
 
