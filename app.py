@@ -22,7 +22,7 @@ if hist_button: # al hacer clic en el botón
     st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
 
     # crear un histograma
-    fig_model_condition = px.histogram(car_data, x="model_year", color="condition", title="Vehicle Model vs. Condition")
+    fig_model_condition = px.histogram(car_data, x="model_year", color="condition", title="Vehicle Model vs. Year")
 
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig_model_condition, use_container_width=True)
