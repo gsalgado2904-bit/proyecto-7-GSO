@@ -1,3 +1,5 @@
+https://proyecto-7-gso.onrender.com
+
 El projecto consiste en 3 graficos distintos que demuestran diferentes temas de importancia para los datos.
 
 # Vehicle type and brand
@@ -14,3 +16,4 @@ El projecto consiste en 3 graficos distintos que demuestran diferentes temas de 
 	De igual manera nos ayuda a visualizar datos fuera del orden, como la existencia de vehiculos con un precio de $1.
 
 Cada uno de estos graficos, puede ser generado a discresion utilazndo las casillas debajo del titulo para poder visualizarlas al mismo tiempo or ir seleccionandolas conforme sea necesario
+
