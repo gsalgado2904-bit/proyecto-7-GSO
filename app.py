@@ -1,19 +1,40 @@
-import streamlit as st
 import pandas as pd
-import numpy as np
-import plotly_express as px
+     import plotly.express as px
+     import streamlit as st
 
-car_data = pd.read_csv('vehicles_us.csv')  # leer los datos
-hist_button = st.button('Construir histograma')  # crear un botón
-st.header("Vehicle graphics and analysis")
+     car_data = pd.read_csv('vehicles_us.csv') # leer los datos
+     car_data["manufacturer"] = car_data['model'].str.split(" ").str[0]
+     type_brand_button = st.button("Construir comparativa de marca con tipo de vehiculo")
+     hist_button = st.checkbox('Construir histograma') # crear un botón
+     scatt_button = st.checkbox("Construir grafico de dispersion")
+      
+     st.header("Vehicle graphics and analysis")
 
-if hist_button:  # al hacer clic en el botón
-    # escribir un mensaje
-    st.write(
-        'Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
+     if type_brand_button:
+         st.write("Construir comparativa de marca con tipo de vehiculo")
 
-    # crear un histograma
-    fig = px.histogram(car_data, x="odometer")
+         fig_manufacturer_type = fig = px.histogram(car_data, x="manufacturer", color="type", title="Vehicle type and brand")
 
-    # mostrar un gráfico Plotly interactivo
-    st.plotly_chart(fig, use_container_width=True)
+         st.plotly_chart(fig_manufacturer_type,use_container_width=True)
+
+
+
+     if hist_button: # al hacer clic en el botón
+         # escribir un mensaje
+         st.write('Creación de un histograma para el conjunto de datos de anuncios de venta de coches')
+
+         # crear un histograma
+         fig_model_condition = px.histogram(car_data, x="model_year", color="condition", title="Vehicle Model vs. Condition")
+
+         # mostrar un gráfico Plotly interactivo
+         st.plotly_chart(fig_model_condition, use_container_width=True)
+
+     if scatt_button: # al hacer clic en el botón
+         # escribir un mensaje
+         st.write('Creacion de un diagrama de dispersion del precio comparado con el millaje')
+
+         # crear un histograma
+         fig_price_mileage = px.scatter(car_data, x="odometer", y="price", color="condition", log_y=True, title="Vehicle Price vs. Mileage")
+
+         # mostrar un gráfico Plotly interactivo
+         st.plotly_chart(fig_price_mileage, use_container_width=True)
