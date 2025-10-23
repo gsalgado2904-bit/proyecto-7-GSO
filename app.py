@@ -2,14 +2,14 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
+st.header("Vehicle graphics and analysis")
+
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
 car_data["manufacturer"] = car_data['model'].str.split(" ").str[0]
 type_brand_button = st.checkbox("Construir comparativa de marca con tipo de vehiculo")
 hist_button = st.checkbox('Construir histograma') # crear un botón
 scatt_button = st.checkbox("Construir grafico de dispersion")
       
-st.header("Vehicle graphics and analysis")
-
 if type_brand_button:
     st.write("Construir comparativa de marca con tipo de vehiculo")
 
